@@ -2,6 +2,7 @@
 const props = defineProps({
   cocktails: Array,
 });
+//useless comment
 </script>
 
 <template>
