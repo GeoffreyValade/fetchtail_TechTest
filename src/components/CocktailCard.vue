@@ -1,19 +1,22 @@
 <script setup>
-import { defineProps } from "vue";
-
 const props = defineProps({
-  cocktails: Array,
+  cocktail: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 
 <template>
-  <div>
-    <div v-for="cocktail in cocktails" :key="cocktail.idDrink">
-      <div>
-        <h3>{{ cocktail.strDrink }}</h3>
-        <img :src="cocktail.strDrinkThumb + '/small'" alt="Cocktail Image" />
-        <p>{{ cocktail.strInstructions }}</p>
-      </div>
-    </div>
+  <div class="card">
+    <h3>{{ cocktail.strDrink }}</h3>
+
+    <img
+      :src="cocktail.strDrinkThumb + '/small'"
+      alt="Cocktail Image"
+      class="cocktail-image"
+    />
+
+    <p>{{ cocktail.strInstructions }}</p>
   </div>
 </template>
