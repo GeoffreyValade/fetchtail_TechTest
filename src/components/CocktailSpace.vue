@@ -23,6 +23,8 @@ const props = defineProps({
 .cocktail-space {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr; /* => Réutilisation du code, une grid présentera mieux avec + d'éléments */
+  grid-template-columns: 1fr 1fr 1fr; /* => Réutilisation du code, une grid présentera mieux si + d'éléments */
+  width: 100%;
+  min-height: 300px;
 }
 </style>

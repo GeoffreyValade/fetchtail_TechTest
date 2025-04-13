@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, watch } from "vue";
 
 const props = defineProps({
   cocktail: {
@@ -9,9 +9,13 @@ const props = defineProps({
 });
 
 const isImageLoading = ref(true);
-const onImageLoad = () => {
-  isImageLoading.value = false;
-};
+
+watch(
+  () => props.cocktail,
+  () => {
+    isImageLoading.value = true;
+  }
+);
 </script>
 
 <template>
@@ -22,15 +26,12 @@ const onImageLoad = () => {
       <div v-if="isImageLoading" class="loader">Loading...</div>
 
       <img
-        v-show="!isImageLoading"
         :src="cocktail.strDrinkThumb + '/small'"
-        @load="onImageLoad"
         alt="Cocktail Image"
         class="cocktail-image"
+        @load="isImageLoading = false"
       />
     </div>
-
-    <p>{{ cocktail.strInstructions }}</p>
   </div>
 </template>
 
