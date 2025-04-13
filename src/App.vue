@@ -21,7 +21,7 @@ const fetchCocktail = async () => {
       cocktails.value.push(newCocktail);
     } else {
       console.log("Cocktail déjà présent, on ne l’ajoute pas.");
-      fetchCocktail();
+      fetchCocktail(); // Risque de boucle infinie ici, mais c'est pour la démo (+ risque faible)
     }
   } catch (error) {
     console.error("Erreur lors de la récupération du cocktail :", error);
@@ -30,12 +30,11 @@ const fetchCocktail = async () => {
 
 const getNumberOfCocktail = async (nbr) => {
   isLoading.value = true;
-  console.log("Chargement des cocktails...");
-  for (let i = 0; i < nbr; i++) {
-    await fetchCocktail();
-  }
+
+  const fetches = Array.from({ length: nbr }, () => fetchCocktail());
+  await Promise.all(fetches);
+
   isLoading.value = false;
-  console.log("Tous les cocktails ont été ajoutés !");
 };
 </script>
 
