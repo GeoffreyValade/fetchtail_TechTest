@@ -1,57 +1,28 @@
 <script setup>
 import { ref } from "vue";
+import { useCocktails } from "./composables/useCocktails";
 import CocktailSpace from "./components/CocktailSpace.vue";
+import Bubble from "./components/Bubble.vue";
 
-const cocktails = ref([]);
-const isLoading = ref(false);
-
-const fetchCocktail = async () => {
-  try {
-    const response = await fetch(
-      "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-    );
-    const data = await response.json();
-    const newCocktail = data.drinks[0];
-
-    const exists = cocktails.value.some(
-      (cocktail) => cocktail.idDrink === newCocktail.idDrink
-    );
-
-    if (!exists) {
-      cocktails.value.push(newCocktail);
-    } else {
-      console.log("Cocktail déjà présent, on ne l’ajoute pas.");
-      fetchCocktail();
-    }
-  } catch (error) {
-    console.error("Erreur lors de la récupération du cocktail :", error);
-  }
-};
-
-const getNumberOfCocktail = async (nbr) => {
-  isLoading.value = true;
-  console.log("Chargement des cocktails...");
-  for (let i = 0; i < nbr; i++) {
-    await fetchCocktail();
-  }
-  isLoading.value = false;
-  console.log("Tous les cocktails ont été ajoutés !");
-};
+const { cocktails, isLoading, getSomeCocktails } = useCocktails();
 </script>
 
 <template>
   <div>
-    <h1>Liste de Cocktails</h1>
-    <button
-      @click="getNumberOfCocktail(3)"
-      :disabled="isLoading"
-      :class="{ loading: isLoading }"
-    >
-      {{ isLoading ? "Chargement" : "Sortir un cocktail !" }}
-    </button>
+    <Bubble v-for="n in 30" :key="n" />
+
+    <h1>Three drinks for zero regrets !</h1>
+
     <div class="cocktail-list">
       <CocktailSpace :cocktails="cocktails" />
     </div>
+    <button
+      @click="getSomeCocktails(3)"
+      :disabled="isLoading"
+      :class="{ loading: isLoading }"
+    >
+      {{ isLoading ? "Loading" : "Another round !" }}
+    </button>
   </div>
 </template>
 
@@ -84,6 +55,8 @@ button {
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  z-index: 1;
+  position: relative;
 }
 button:hover {
   background-color: #35495e;
