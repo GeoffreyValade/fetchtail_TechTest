@@ -105,6 +105,10 @@ h2 {
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-y: auto;
+  position: absolute;
+  top: 5%;
+  max-height: 90%;
 }
 
 .modal-header,
@@ -145,7 +149,7 @@ h2 {
 .modal-body-ingredients ul {
   display: grid;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -176,7 +180,7 @@ li {
   display: inline-flex;
   flex-direction: column;
   min-width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   padding: 0;
   margin: 0;
   align-items: flex-start;
