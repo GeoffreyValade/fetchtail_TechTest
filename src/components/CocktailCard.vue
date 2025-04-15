@@ -47,7 +47,7 @@ watch(
 
 .card:hover h3 {
   color: #e4fffd;
-  text-shadow: 0 0 5px rgba(98, 209, 200, 0.658);
+  text-shadow: 0 0 8px rgba(98, 209, 200, 0.8);
 }
 
 .image-wrapper {

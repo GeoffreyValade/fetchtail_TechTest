@@ -60,10 +60,6 @@ function close() {
           </ul>
         </slot>
       </section>
-
-      <footer class="modal-footer">
-        <slot name="footer"></slot>
-      </footer>
     </div>
   </div>
 </template>
@@ -95,6 +91,7 @@ h2 {
 }
 
 .modal {
+  border-radius: 1rem;
   background: linear-gradient(
     to bottom,
     rgb(28, 107, 107, 1),
@@ -113,7 +110,7 @@ h2 {
 
 .modal-header,
 .modal-footer {
-  padding: 15px;
+  padding: 10px;
   display: flex;
 }
 
@@ -153,7 +150,7 @@ h2 {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 1px;
+  gap: 18px;
 }
 
 li {
@@ -173,6 +170,7 @@ li {
 
 .modal-body-instructions {
   padding: 20px 10px;
+  margin-bottom: 1rem;
 }
 
 .modal-body-instructions ul {
@@ -194,12 +192,14 @@ li {
 
 .btn-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   background-color: #42b883;
   color: white;
   border: none;
-  padding: 0.17em 0.4em;
+  padding: 0;
+  width: 36px;
+  height: 36px;
   font-weight: 800;
   font-size: 1.5em;
   border-radius: 25%;
