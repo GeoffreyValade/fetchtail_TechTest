@@ -8,7 +8,7 @@ describe("getIngredientImage", () => {
     expect(getIngredientImage(ingredient)).toBe(expectedUrl);
   });
 
-  it("returns an empty string if no ingredient is provided", () => {
+  it("Throw an error if no ingredient is provided", () => {
     expect(() => getIngredientImage()).toThrow("No name found");
   });
 });
