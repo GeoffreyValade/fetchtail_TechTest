@@ -40,6 +40,8 @@ export function useCocktails() {
     isLoading.value = false;
   };
 
+  getSomeCocktails(3); // <= On appelle la fonction pour récupérer 3 cocktails au démarrage
+
   return {
     cocktails,
     isLoading,

@@ -18,7 +18,7 @@ const getBubbleStyle = () => {
   <div class="bubble" :style="getBubbleStyle()"></div>
 </template>
 
-<style>
+<style scoped>
 .bubble {
   position: fixed;
   bottom: -15px;
@@ -38,19 +38,19 @@ const getBubbleStyle = () => {
   }
   25% {
     transform: translateY(-5vh) translateX(-3px) scale(1);
-    opacity: 0.9;
+    opacity: 0.8;
   }
   50% {
     transform: translateY(-10vh) translateX(0px) scale(0.8);
-    opacity: 0.8;
+    opacity: 1;
   }
   75% {
     transform: translateY(-15vh) translateX(3px) scale(0.2);
-    opacity: 0.6;
+    opacity: 1;
   }
   100% {
     transform: translateY(-20vh) translateX(0px) scale(0.8);
-    opacity: 0.2;
+    opacity: 0.6;
   }
 }
 </style>
