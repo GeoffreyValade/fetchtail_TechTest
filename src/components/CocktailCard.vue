@@ -52,8 +52,8 @@ watch(
 
 .image-wrapper {
   position: relative;
-  height: 200px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
