@@ -53,7 +53,7 @@ watch(
 .image-wrapper {
   position: relative;
   height: 200px;
-  width: 200px;
+  width: 250px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
@@ -84,9 +84,9 @@ watch(
 h3 {
   display: flex;
   height: 2.4em;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.4em 0;
   width: 100%;
-  font-size: 40px;
+  font-size: 36px;
   font-family: "Caveat Brush", cursive;
   font-weight: 400;
   font-style: normal;
