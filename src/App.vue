@@ -1,5 +1,5 @@
 <script setup>
-import { useCocktails } from "./composables/useCocktails";
+import { useCocktails } from "./utils/useCocktails";
 import CocktailSpace from "./components/CocktailSpace.vue";
 import Bubble from "./components/Bubble.vue";
 

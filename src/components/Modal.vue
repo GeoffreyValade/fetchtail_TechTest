@@ -1,4 +1,8 @@
 <script setup>
+import { getIngredientImage } from "../utils/getIngredientImage";
+import { getInstructions } from "../utils/getInstructions";
+import { getIngredients } from "../utils/getIngredients";
+
 const emit = defineEmits(["close"]);
 
 const props = defineProps({
@@ -11,43 +15,6 @@ const props = defineProps({
 const ingredients = getIngredients(props.selectedCocktail);
 const instructions = getInstructions(props.selectedCocktail);
 const selectedCocktail = props.selectedCocktail;
-
-function getIngredients(cocktail) {
-  const ingredients = [];
-
-  for (let i = 1; i <= 15; i++) {
-    const ingredient = cocktail[`strIngredient${i}`];
-    const measure = cocktail[`strMeasure${i}`];
-    if (!ingredient) {
-      break;
-    } else {
-      ingredients.push({
-        name: ingredient.trim(),
-        measure: measure ? measure.trim() : null,
-      });
-    }
-  }
-  return ingredients;
-}
-
-function getIngredientImage(name) {
-  const ingredientName = name.trim().replace(" ", "%20");
-  return `https://www.thecocktaildb.com/images/ingredients/${ingredientName}-small.png`;
-}
-
-function getInstructions(cocktail) {
-  const instructions = [];
-  const instruction = cocktail.strInstructions;
-
-  const instructionParts = instruction.split(".");
-  for (let i = 0; i < instructionParts.length; i++) {
-    const part = instructionParts[i].trim();
-    if (part) {
-      instructions.push(i + 1 + ". " + part);
-    }
-  }
-  return instructions;
-}
 
 function close() {
   emit("close");
@@ -71,8 +38,8 @@ function close() {
               <img
                 :src="getIngredientImage(ingredient.name)"
                 :alt="ingredient.name"
-                width="80"
-                height="80"
+                width="100"
+                height="100"
               />
               <span
                 >{{ ingredient.measure ? ingredient.measure + " " : ""
@@ -182,7 +149,7 @@ h2 {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 25px;
+  gap: 1px;
 }
 
 li {
@@ -209,7 +176,7 @@ li {
   display: inline-flex;
   flex-direction: column;
   min-width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   padding: 0;
   margin: 0;
   align-items: flex-start;
