@@ -46,8 +46,7 @@ watch(
 }
 
 .card:hover h3 {
-  color: #e4fffd;
-  text-shadow: 0 0 8px rgba(98, 209, 200, 0.8);
+  text-shadow: 0 0 8px var(--text-highlight);
 }
 
 .image-wrapper {
@@ -93,6 +92,6 @@ h3 {
   min-height: 2.4em;
   align-items: center;
   justify-content: center;
-  transition: text-shadow 0.3s ease, color 0.3s ease;
+  transition: text-shadow 0.3s ease, color 0.3s ease;;
 }
 </style>

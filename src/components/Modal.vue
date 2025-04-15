@@ -92,11 +92,7 @@ h2 {
 
 .modal {
   border-radius: 1rem;
-  background: linear-gradient(
-    to bottom,
-    rgb(28, 107, 107, 1),
-    rgba(3, 37, 53, 1)
-  );
+  background: var(--bg-modal-color);
   box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.5);
   overflow-x: auto;
   display: flex;
@@ -108,32 +104,21 @@ h2 {
   max-height: 90%;
 }
 
-.modal-header,
-.modal-footer {
-  padding: 10px;
-  display: flex;
-}
-
 .modal-header {
+  padding: 10px;
   position: relative;
   display: flex;
   align-items: center;
   text-align: center;
-  border-bottom: 1px solid #eeeeee;
-  color: #ffffff;
-}
-
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
-  justify-content: flex-end;
+  border-bottom: 1px solid var(--text-color);
+  color: var(--text-color);
 }
 
 .section-title {
   margin: 0 0 15px 0;
   font-size: 32px;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "Caveat Brush", cursive;
   text-align: center;
 }
@@ -194,7 +179,7 @@ li {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: #42b883;
+  background-color: var(--btn-color);
   color: white;
   border: none;
   padding: 0;
