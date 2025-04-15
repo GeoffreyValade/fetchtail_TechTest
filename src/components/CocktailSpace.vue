@@ -1,5 +1,7 @@
 <script setup>
 import CocktailCard from "./CocktailCard.vue";
+import { ref } from "vue";
+import Modal from "./Modal.vue";
 
 const props = defineProps({
   cocktails: {
@@ -7,7 +9,19 @@ const props = defineProps({
     required: true,
   },
 });
-//useless comment
+
+const selectedCocktail = ref(null);
+const isModalVisible = ref(false);
+
+function showModal(cocktail) {
+  selectedCocktail.value = cocktail;
+  isModalVisible.value = true;
+}
+
+function closeModal() {
+  isModalVisible.value = false;
+  selectedCocktail.value = null;
+}
 </script>
 
 <template>
@@ -16,16 +30,23 @@ const props = defineProps({
       v-for="cocktail in cocktails"
       :key="cocktail.idDrink"
       :cocktail="cocktail"
+      @click="showModal(cocktail)"
+    />
+
+    <Modal
+      v-if="isModalVisible"
+      @close="closeModal"
+      :selectedCocktail="selectedCocktail"
     />
   </div>
 </template>
 
 <style scoped>
 .cocktail-space {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr; /* => Réutilisation du code, une grid présentera mieux si + d'éléments */
+  display: grid; /* => Réutilisation du code, une grid présentera mieux si + d'éléments */
+  grid-template-columns: repeat(3, min-content);
   width: 100%;
   min-height: 300px;
+  justify-content: space-evenly;
 }
 </style>

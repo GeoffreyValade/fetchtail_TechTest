@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import { useCocktails } from "./composables/useCocktails";
 import CocktailSpace from "./components/CocktailSpace.vue";
 import Bubble from "./components/Bubble.vue";
@@ -9,46 +8,46 @@ const { cocktails, isLoading, getSomeCocktails } = useCocktails();
 
 <template>
   <div>
-    <Bubble v-for="n in 30" :key="n" />
+    <div class="main-container">
+      <h1>Three drinks for zero regret !</h1>
 
-    <h1>Three drinks for zero regrets !</h1>
-
-    <div class="cocktail-list">
       <CocktailSpace :cocktails="cocktails" />
+
+      <button
+        @click="getSomeCocktails(3)"
+        :disabled="isLoading"
+        :class="{ loading: isLoading }"
+      >
+        {{ isLoading ? "Loading" : "Another round !" }}
+      </button>
     </div>
-    <button
-      @click="getSomeCocktails(3)"
-      :disabled="isLoading"
-      :class="{ loading: isLoading }"
-    >
-      {{ isLoading ? "Loading" : "Another round !" }}
-    </button>
+    <div class="bubbles">
+      <Bubble v-for="n in 30" :key="n" />
+    </div>
   </div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+h1 {
+  margin: 0;
+  font-size: 5em;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-
-.cocktail-list {
+.main-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  gap: 50px;
 }
+
 button {
   background-color: #42b883;
+  border-radius: 10px;
   color: white;
   border: none;
   padding: 1em;
@@ -56,6 +55,8 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 1;
+  font-weight: 600;
+  font-size: 18px;
   position: relative;
 }
 button:hover {
