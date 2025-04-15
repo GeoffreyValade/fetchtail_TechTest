@@ -47,6 +47,7 @@ h1 {
 
 button {
   background-color: #42b883;
+  border-radius: 10px;
   color: white;
   border: none;
   padding: 1em;
@@ -54,6 +55,8 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 1;
+  font-weight: 600;
+  font-size: 18px;
   position: relative;
 }
 button:hover {

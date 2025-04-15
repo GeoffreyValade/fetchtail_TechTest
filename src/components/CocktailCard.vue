@@ -62,6 +62,7 @@ watch(
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .card:hover .image-wrapper {
@@ -85,7 +86,7 @@ h3 {
   height: 2.4em;
   margin: 0 0 1em 0;
   width: 100%;
-  font-size: 2em;
+  font-size: 40px;
   font-family: "Caveat Brush", cursive;
   font-weight: 400;
   font-style: normal;

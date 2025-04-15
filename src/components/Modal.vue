@@ -57,12 +57,14 @@ function close() {
 <template>
   <div class="modal-backdrop">
     <div class="modal">
+      <button type="button" class="btn-close" @click="close">x</button>
+
       <header class="modal-header">
         <h2 name="modal-title">{{ selectedCocktail.strDrink }}</h2>
-        <button type="button" class="btn-close" @click="close">x</button>
       </header>
 
       <section class="modal-body-ingredients">
+        <h3 class="section-title">Ingredients</h3>
         <slot name="ingredients"
           ><ul>
             <li v-for="(ingredient, index) in ingredients" :key="index">
@@ -82,8 +84,9 @@ function close() {
       </section>
 
       <section class="modal-body-instructions">
-        <slot name="instructions"
-          ><ul>
+        <slot name="instructions">
+          <h3 class="section-title">Instructions</h3>
+          <ul>
             <li v-for="(instruction, index) in instructions" :key="index">
               {{ instruction }}.
             </li>
@@ -102,10 +105,13 @@ function close() {
 h2 {
   margin: 0;
   padding: 0;
-  font-size: 2em;
+  font-size: 48px;
   font-family: "Caveat Brush", cursive;
   font-weight: 400;
   font-style: normal;
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
 }
 
 .modal-backdrop {
@@ -121,13 +127,6 @@ h2 {
   z-index: 99;
 }
 
-.modal-title {
-  flex: 1;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-}
-
 .modal {
   background: linear-gradient(
     to bottom,
@@ -138,6 +137,7 @@ h2 {
   overflow-x: auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .modal-header,
@@ -148,17 +148,26 @@ h2 {
 
 .modal-header {
   position: relative;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  text-align: center;
   border-bottom: 1px solid #eeeeee;
   color: #ffffff;
-  display: flex;
 }
 
 .modal-footer {
   border-top: 1px solid #eeeeee;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.section-title {
+  margin: 0 0 15px 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "Caveat Brush", cursive;
+  text-align: center;
 }
 
 .modal-body-ingredients {
@@ -168,17 +177,23 @@ h2 {
 
 .modal-body-ingredients ul {
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: left;
   gap: 25px;
+}
+
+li {
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .modal-body-ingredients li {
   margin: 0;
   padding: 0;
+  max-width: 130px;
   display: inline-flex;
   flex-direction: column;
   text-align: center;
@@ -193,29 +208,36 @@ h2 {
   list-style: none;
   display: inline-flex;
   flex-direction: column;
+  min-width: 100%;
+  max-width: 600px;
   padding: 0;
   margin: 0;
+  align-items: flex-start;
   text-align: left;
-  gap: 4px;
+  gap: 10px;
+}
+
+.modal-body-instructions li {
+  margin: 0 0 0 20px;
 }
 
 .btn-close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
+  background-color: #42b883;
+  color: white;
   border: none;
-  font-size: 20px;
-  padding: 10px;
+  padding: 0.17em 0.4em;
+  font-weight: 800;
+  font-size: 1.5em;
+  border-radius: 25%;
   cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
+  transition: background-color 0.15s ease;
+  z-index: 1;
 }
 
-.btn-green {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 2px;
+button:hover {
+  background-color: #924343;
 }
 </style>
