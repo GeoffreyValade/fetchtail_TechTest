@@ -84,7 +84,7 @@ watch(
 h3 {
   display: flex;
   height: 2.4em;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.4em 0;
   width: 100%;
   font-size: 40px;
   font-family: "Caveat Brush", cursive;
