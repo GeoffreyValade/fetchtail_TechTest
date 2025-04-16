@@ -1,30 +1,63 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch } from "vue";
 
-const selectedTheme = ref("mojito")
+const selectedTheme = ref("mojito");
+
+const themes = [
+  { name: "mojito", color: "#80cfa9" },
+  { name: "tequila", color: "#ff5e3a" },
+  { name: "lagoon", color: "#3dbde4" },
+  { name: "colada", color: "#fceabb" },
+  { name: "daiquiri", color: "#f67bbf" },
+];
 
 watch(selectedTheme, (newTheme) => {
-  document.body.className = ''
-  document.body.classList.add(`theme-${newTheme}`)
-})
+  document.body.className = "";
+  document.body.classList.add(`theme-${newTheme}`);
+});
 </script>
 
 <template>
-      <select v-model="selectedTheme">
-        <option value="mojito">Mojito</option>
-        <option value="tequila">Tequila Sunrise</option>
-        <option value="lagoon">Blue Lagoon</option>
-        <option value="colada">Pina Colada</option>
-        <option value="daiquiri">Strawberry Daiquiri</option>
-      </select>
+  <div class="theme-selector">
+    <button
+      v-for="theme in themes"
+      :key="theme.name"
+      :style="{ backgroundColor: theme.color }"
+      :class="{ active: selectedTheme === theme.name }"
+      @click="selectedTheme = theme.name"
+      class="theme-button"
+    ></button>
+  </div>
 </template>
 
 <style scoped>
-select {
-  font-size: 1em;
-  padding: 0.5em;
-  border-radius: 8px;
-  border: none;
+.theme-selector {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-bottom: 1em;
+}
+
+.theme-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.theme-button:hover {
+  transform: scale(1.2);
+}
+
+.theme-button.active {
+  border-color: white;
+  transform: scale(1.2);
 }
 </style>

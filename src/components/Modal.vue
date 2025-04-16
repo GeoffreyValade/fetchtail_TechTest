@@ -22,8 +22,8 @@ function close() {
 </script>
 
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
+  <div class="modal-backdrop" @click="close">
+    <div class="modal" @click.stop>
       <button type="button" class="btn-close" @click="close">x</button>
 
       <header class="modal-header">
