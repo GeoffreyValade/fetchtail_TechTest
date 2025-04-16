@@ -29,18 +29,18 @@
   --bg-color: linear-gradient(
     to bottom,
     rgba(239, 225, 155, 0.8),
-    rgba(255, 195, 113, 0.8),
-    rgba(255, 94, 58, 0.7)
+    rgba(255, 165, 113, 0.8),
+    #ff9090
   );
   --bg-modal-color: linear-gradient(
     to bottom,
-    rgba(255, 210, 140, 1),
-    rgba(255, 144, 88, 1)
+    rgb(238, 179, 83),
+    rgb(212, 93, 93)
   );
   --text-color: rgba(50, 10, 5, 0.95);
   --text-highlight: rgba(243, 38, 38, 0.942);
-  --btn-color: #ff7e3d;
-  --btn-hover: #e65100;
+  --btn-color: rgba(50, 10, 5, 0.95);
+  --btn-hover: rgba(99, 0, 0, 0.942);
 }
 
 .theme-lagoon {
@@ -52,13 +52,13 @@
   );
   --bg-modal-color: linear-gradient(
     to bottom,
-    rgba(0, 102, 204, 1),
-    rgba(0, 43, 119, 1)
+    rgb(0, 74, 148),
+    rgb(0, 23, 63)
   );
   --text-color: rgba(255, 255, 255, 0.95);
   --text-highlight: rgba(92, 209, 255, 0.921);
-  --btn-color: #4fc3f7;
-  --btn-hover: #039be5;
+  --btn-color: #0093dd;;
+  --btn-hover: #55c9ff;
 }
 
 .theme-colada {
@@ -75,8 +75,8 @@
   );
   --text-color: rgba(80, 50, 0, 0.95);
   --text-highlight: rgb(255, 164, 28);
-  --btn-color: #fcd670;
-  --btn-hover: #f4be42;
+  --btn-color: rgba(80, 50, 0, 0.95);
+  --btn-hover: #a5770d;
 }
 
 .theme-daiquiri {
@@ -88,13 +88,13 @@
   );
   --bg-modal-color: linear-gradient(
     to bottom,
-    rgba(255, 51, 102, 1),
-    rgba(153, 0, 51, 1)
+    rgb(155, 31, 62),
+    rgb(87, 0, 29)
   );
   --text-color: rgba(255, 240, 245, 0.95);
   --text-highlight: rgba(255, 142, 217, 0.914);
-  --btn-color: #ff4f87;
-  --btn-hover: #cc3d6b;
+  --btn-color: #f13570;
+  --btn-hover: #ff80a8;
 }
 
 
