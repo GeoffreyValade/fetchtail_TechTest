@@ -46,7 +46,7 @@ function closeModal() {
   display: grid; /* => Réutilisation du code, une grid présentera mieux si + d'éléments */
   grid-template-columns: repeat(3, min-content);
   width: 100%;
-  min-height: 300px;
+  min-height: 405px;
   justify-content: space-evenly;
 }
 </style>

@@ -1,7 +1,6 @@
 <script setup>
 const getBubbleStyle = () => {
   const size = Math.random() * 6 + 5;
-  const colors = ["#ffffff33", "#ffe4e133", "#ccf3e033", "#ffd1dc33"];
 
   return {
     left: Math.random() * 100 + "vw",
@@ -9,7 +8,6 @@ const getBubbleStyle = () => {
     AnimationTimingFunction: "linear",
     width: size + "px",
     height: size + "px",
-    background: colors[Math.floor(Math.random() * colors.length)],
   };
 };
 </script>
@@ -24,7 +22,7 @@ const getBubbleStyle = () => {
   bottom: -15px;
   width: 10px;
   height: 10px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   animation: floatUp 3s linear infinite;
   z-index: 0;
