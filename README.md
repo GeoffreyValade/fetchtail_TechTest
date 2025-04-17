@@ -56,13 +56,35 @@ docker exec -it my_frontend bash
 
 ---
 
+### Source de l'API utilisée
+
+Les cocktails sont récupérés depuis :  
+https://www.thecocktaildb.com/api.php
+
+---
+
 ## ⚠️ Avertissements :
 
 La fonction getSomeCocktails utilise une boucle `while` pour remplir un tableau avec des cocktails aléatoires via une API.
 
-Plus on souhaite d’éléments, plus la probabilité de doublons augmente, ce qui pourrait provoquer un ralentissement ou une boucle prolongée.
+Plus on souhaite d’éléments, plus la probabilité de doublons augmente à chaque fois que la boucle revient au début, et donc à chaque nouvel appel.
 
 Pour éviter un risque d’infinité, une limite de tentatives ou une logique de contrôle supplémentaire peut être envisagée.
+
+### Explications et risques :
+
+La base de données contient 636 cocktails.
+
+`getSomeCocktails(n)` effectue un appel par cocktail recherché, en s’appuyant sur une API qui renvoie un cocktail **aléatoire** depuis cette base.
+
+- Si nous avons seulement récupéré **3 cocktails**, les chances d'obtenir un cocktail inédit restent élevées.
+- En revanche, si nous avons déjà stocké **49 cocktails sur 50 attendus**, il devient beaucoup plus probable que l’API renvoie un cocktail **déjà présent** dans notre tableau.
+
+**→ Conséquences possibles avec une valeur élevée de n :**
+
+- Temps de chargement aléatoire ou très long.
+- API pouvant renvoyer une erreur ou s’interrompre.
+- Blocage temporaire par le serveur (surcharge / protection anti-abus).
 
 ---
 
