@@ -1,11 +1,11 @@
 services:
   my_frontend:
     container_name: my_frontend
-    image: node:lts
-    working_dir: /var/www/html/app/
-    entrypoint: /bin/bash
+    build:
+      context: .
     ports:
-      - "32768:8000"
+      - "8000:8000"
     volumes:
-      - .:/var/www/html/app
+      - .:/app/
     tty: true
+    command: npm run dev --host 0.0.0.0 

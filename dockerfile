@@ -1,11 +1,14 @@
 FROM node:18 AS builder
 
-WORKDIR /var/www/html/app
+WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
 
-COPY . /var/www/html/app
+COPY . /app
+RUN npm install
 RUN npm run build
 
-CMD [ "npm", "run", "dev", "--host", "0.0.0.0" ]
+EXPOSE 8000
+
+CMD [ "npm", "run", "dev" ]
