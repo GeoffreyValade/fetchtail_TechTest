@@ -8,4 +8,4 @@ RUN npm install
 COPY . /app
 RUN npm run build
 
-CMD ["npm", "run", "dev", "--host", "0.0.0.0"]
+EXPOSE 8000
