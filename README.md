@@ -90,11 +90,11 @@ La base de données contient 636 cocktails.
 ## 📦 Dépendances :
 
 - Dépendances:
-  `vue`: ^3.5.13
+  - `vue`: ^3.5.13
 - Dev-Dépendances:
-  `@vitejs/plugin-vue`: ^5.2.1,
-  `vite`: ^6.2.0,
-  `vitest`: ^3.1.1
+  - `@vitejs/plugin-vue`: ^5.2.1,
+  - `vite`: ^6.2.0,
+  - `vitest`: ^3.1.1
 
 ---
 
