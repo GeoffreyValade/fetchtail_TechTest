@@ -1,26 +1,91 @@
 # Fetchtail
 
-Relations composants :
+## ⚙️ Pré-requis :
 
-\App.vue
-| \Bubble
-| \CocktailSpace
-| | \CocktailCard
-| | \CocktailModal
+### 🐳❌ Sans Docker :
 
----
+- `Node:18`
 
-Avertissements :
+### 🐳💙 Avec Docker :
 
-a. En l'état, la fonction getSomeCocktails ne comporte quasiment aucun risque. Avec plus d'éléments à afficher, un risque de boucle infinie est à prendre en compte.
-=> Une boucle while tourne tant que le nombre de cocktails n'a pas été ajouté au tableau. Or, les cocktails récupérés avec l'API sont aléatoires. Donc, plus nous avons d'éléments dans le tableau, plus il y a de chances de retomber consécutivement sur un cocktail déjà présent dans le tableau.
+- `Docker`
+- `Docker-compose`
 
 ---
 
-Contenair docker :
+## ⚡ Test rapide
 
-1. docker-compose up -d --build
-2. docker exec -it my_frontend bash
-3. Une fois dans le docker :
-   3.1. npm run dev => pour dev
-   3.2. npm run preview => pour tester la prod
+```bash
+git clone https://github.com/GeoffreyValade/fetchtail_TechTest.git
+cd fetchtail_TechTest
+docker-compose up -d --build
+docker exec -it my_frontend bash
+npm run dev
+```
+
+---
+
+## 🚀 Commandes utiles :
+
+```bash
+npm run dev // Lance le serveur de dev avec Vite
+npm run build // Build le projet pour la production
+npm run preview // Lance un serveur local pour simuler la prod
+```
+
+---
+
+## 🐳 Container docker :
+
+```bash
+docker-compose up -d --build
+docker exec -it my_frontend bash
+```
+
+---
+
+## 🧱 Structure composants :
+
+```cpp
+\App.vue // Composant racine
+| \Bubble // Affiche une bulle animée ou décorative
+| \CocktailSpace // Conteneur principal des cocktails
+| | \CocktailCard // Affiche un cocktail sous forme de carte
+| | \CocktailModal // Modale avec les détails du cocktail
+```
+
+---
+
+## ⚠️ Avertissements :
+
+La fonction getSomeCocktails utilise une boucle `while` pour remplir un tableau avec des cocktails aléatoires via une API.
+
+Plus on souhaite d’éléments, plus la probabilité de doublons augmente, ce qui pourrait provoquer un ralentissement ou une boucle prolongée.
+
+Pour éviter un risque d’infinité, une limite de tentatives ou une logique de contrôle supplémentaire peut être envisagée.
+
+---
+
+## 📦 Dépendances :
+
+- Dépendances:
+  `vue`: ^3.5.13
+- Dev-Dépendances:
+  `@vitejs/plugin-vue`: ^5.2.1,
+  `vite`: ^6.2.0,
+  `vitest`: ^3.1.1
+
+---
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer :
+
+- Fork le repo
+- Créez une branche dédiée : `git checkout -b feat/votre-feature`
+- Faites vos modifs et commits
+- N'oubliez pas de prévoir des tests si vous prévoyez un/des appel(s) à l'API
+- Push la branche : `git push origin feat/votre-feature`
+- Créez une Pull Request
+
+Merci d’ouvrir une issue si vous souhaitez discuter d’une nouvelle fonctionnalité importante 💡
