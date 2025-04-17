@@ -15,12 +15,11 @@
 
 ## ⚡ Test rapide
 
+Non-opérationnel :
 ```bash
 git clone https://github.com/GeoffreyValade/fetchtail_TechTest.git
 cd fetchtail_TechTest
-docker compose up -d --build
-docker exec -it my_frontend bash
-npm run dev
+docker compose up --build
 ```
 
 ---
