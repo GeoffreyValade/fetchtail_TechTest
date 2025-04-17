@@ -88,7 +88,7 @@ La base de données contient 636 cocktails.
 
 ---
 
-## 📦 Dépendances :
+## 📦 Dépendances :
 
 - Dépendances:
   `vue`: ^3.5.13
