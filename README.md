@@ -18,7 +18,7 @@
 ```bash
 git clone https://github.com/GeoffreyValade/fetchtail_TechTest.git
 cd fetchtail_TechTest
-docker-compose up -d --build
+docker compose up -d --build
 docker exec -it my_frontend bash
 npm run dev
 ```
@@ -38,7 +38,7 @@ npm run preview // Lance un serveur local pour simuler la prod
 ## 🐳 Container docker :
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 docker exec -it my_frontend bash
 ```
 
