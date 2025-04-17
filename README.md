@@ -7,7 +7,7 @@
 - `Node:18`
 
 ### 🐳💙 Avec Docker :
-
+Non-opérationnel
 - `Docker`
 - `Docker-compose`
 
