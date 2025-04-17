@@ -36,9 +36,9 @@ npm run preview // Lance un serveur local pour simuler la prod
 
 ## 🐳 Container docker :
 
+Non-opérationnel :
 ```bash
-docker compose up -d --build
-docker exec -it my_frontend bash
+docker compose up --build
 ```
 
 ---
